@@ -1,0 +1,12 @@
+{
+	"name": "spice",
+	"version": "0.0.1",
+	"description": "An awesome lightweight CSS framework",
+	"author": "Mohammad Islam",
+	"private": true,
+	"devDependencies": {
+		"grunt": "~0.4.2",
+		"grunt-contrib-compass": "~0.7.0",
+		"grunt-contrib-watch": "~0.5.3"
+	}	
+}

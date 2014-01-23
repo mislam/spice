@@ -1,0 +1,17 @@
+$total-columns: 24 !default;
+$column-gutter: rem-calc(30) !default;
+
+@function grid-calc($columnSpan, $totalColumns) {
+	@return percentage(($columnSpan / $totalColumns));
+}
+
+@mixin row {
+	@extend .clear;
+}
+
+@mixin column-span($columnSpan: $total-columns) {
+	float: left;
+	padding-left: $column-gutter / 2;
+	padding-right: $column-gutter / 2;
+	width: grid-calc($columnSpan, $total-columns);
+}

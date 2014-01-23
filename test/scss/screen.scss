@@ -1,0 +1,28 @@
+@import "../../source/spice";
+
+.page {
+	@include row;
+	background: lightgray;
+}
+
+.sidebar {
+	@include column-span(24);
+	background: lightgreen;
+}
+
+.content {
+	@include column-span(24);
+	background: lightblue;
+}
+
+@media #{$large-up} {
+
+	.sidebar {
+		@include column-span(8);
+	}
+
+	.content {
+		@include column-span(16);
+	}
+
+}

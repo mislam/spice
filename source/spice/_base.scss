@@ -1,0 +1,19 @@
+// Set box-sizing globally to handle padding and border widths
+*,
+*:before,
+*:after {
+	@include box-sizing(border-box);
+}
+
+// Clearfix
+.clear:before,
+.clear:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+.clear:after {
+	clear: both;
+}
+.clear {
+	*zoom: 1;
+}
