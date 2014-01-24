@@ -8,10 +8,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 
 		pkg: grunt.file.readJSON('package.json'),
-		
+
 		watch: {
 			files: ['source/**/*.scss', 'test/scss/**/*.scss'],
-			tasks: ['compass']
+			tasks: ['compass', 'notify:compass']
 		},
 
 		compass: {
@@ -20,7 +20,16 @@ module.exports = function(grunt) {
 					sassDir: 'test/scss',
 					cssDir: 'test/css',
 					outputStyle: 'compressed'
-				}				
+				}
+			}
+		},
+
+		notify: {
+			compass: {
+				options: {
+					'title': '<%= pkg.name.toUpperCase() %>',
+					'message': 'Compass complete'
+				}
 			}
 		}
 
@@ -29,6 +38,7 @@ module.exports = function(grunt) {
 	// Load the grunt plugins.
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-notify');
 
 	// Register the default task(s).
 	grunt.registerTask('default', ['watch']);
