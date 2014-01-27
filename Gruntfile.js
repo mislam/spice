@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			files: ['source/**/*.scss', 'test/scss/**/*.scss'],
-			tasks: ['compass', 'notify:compass']
+			tasks: ['compass']
 		},
 
 		compass: {
@@ -24,11 +24,11 @@ module.exports = function(grunt) {
 			}
 		},
 
-		notify: {
-			compass: {
+		connect: {
+			server: {
 				options: {
-					'title': '<%= pkg.name.toUpperCase() %>',
-					'message': 'Compass complete'
+					port: 8080,
+					base: 'test'
 				}
 			}
 		}
@@ -36,10 +36,10 @@ module.exports = function(grunt) {
 	});
 
 	// Load the grunt plugins.
-	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-notify');
+	grunt.loadNpmTasks('grunt-contrib-compass');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 
 	// Register the default task(s).
-	grunt.registerTask('default', ['watch']);
+	grunt.registerTask('default', ['connect:server', 'watch']);
 };
