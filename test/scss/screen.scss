@@ -15,7 +15,7 @@
 	background: lightblue;
 }
 
-@media #{$large-up} {
+@media #{$desktop-up} {
 
 	.sidebar {
 		@include column-span(8);
